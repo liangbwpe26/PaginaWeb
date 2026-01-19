@@ -1,0 +1,321 @@
+/* 1. REGISTRO DE PROPIEDADES Y VARIABLES GLOBALES */
+@property --angulo {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Noto+Sans+JP:wght@100..900&display=swap');
+
+:root {
+    /* Paleta de Colores */
+    --fondo-principal: rgb(32, 32, 32);
+    --fondo-tarjeta: #1a1a1a;
+    --fondo-navegacion: rgba(30, 30, 30, 0.95);
+    --color-acento: #a34cf5;
+    --texto-blanco: #ffffff;
+    --texto-gris: #aaaaaa;
+
+    /* VARIABLES DEL RGB (Tonos Morados, Rosas y Azules) */
+    --rgb-1: #7a00ff;
+    /* Morado intenso */
+    --rgb-2: #ff00c8;
+    /* Rosa neón */
+    --rgb-3: #ff0055;
+    /* Fucsia */
+    --rgb-4: #00d4ff;
+    /* Celeste cian */
+    --rgb-5: #9d00ff;
+    /* Violeta */
+
+    /* Espaciados y Medidas */
+    --espacio-dinamico: calc(15px + 1.5vw);
+    --altura-nav: 80px;
+
+    /* Tipografía Fluida */
+    --fuente-titulo: clamp(1.5rem, 5vw, 2.5rem);
+    --fuente-etiqueta: clamp(0.85rem, 2vw, 1rem);
+}
+
+/* 2. ESTRUCTURA BASE (CSS GRID) */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--fondo-principal);
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--texto-blanco);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 3. BARRA DE NAVEGACIÓN (FLEXBOX + NESTING) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: var(--altura-nav);
+    background: var(--fondo-navegacion);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--color-acento);
+
+    #logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        /* Efecto de brillo neón al logo */
+        filter: drop-shadow(0 0 8px var(--rgb-1));
+        border: 2px solid var(--rgb-2);
+    }
+
+    .search-bar {
+        display: flex;
+        gap: 8px;
+        flex: 0 1 400px;
+
+        input {
+            width: 100%;
+            padding: 10px;
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+
+            &:focus {
+                outline: 1px solid var(--color-acento);
+            }
+        }
+
+        button {
+            background: var(--color-acento);
+            border: none;
+            padding: 0 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+
+            &:hover {
+                filter: brightness(1.2);
+            }
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        a {
+            color: var(--texto-blanco);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--color-acento);
+            }
+
+            img {
+                width: 32px;
+                border-radius: 50%;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+/* 4. SLIDER INFINITO (SIN HUECOS) */
+.slider {
+    width: 100%;
+    height: var(--slider-height);
+    overflow: hidden;
+    background: radial-gradient(circle, #333 0%, #111 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    /* Añadimos un degradado en los bordes para que las cajas aparezcan suavemente */
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 15%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, #282828, transparent);
+    }
+
+    &::after {
+        right: 0;
+        background: linear-gradient(to left, #282828, transparent);
+    }
+
+    .slides {
+        display: flex;
+        /* El ancho debe ser (número total de imágenes * 20%) si cada una ocupa 1/5 del visor */
+        width: calc(20% * var(--items-count));
+        height: 80%;
+        animation: slider-infinito 25s linear infinite;
+
+        img {
+            /* Cada imagen ocupa exactamente el 10% del total (porque hay 10 imágenes) */
+            width: calc(100% / var(--items-count));
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.8));
+            padding: 0 10px;
+            /* Gap entre cajas del slider */
+        }
+    }
+}
+
+/* 5. DISEÑO DEL MAIN Y GRIDS */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: var(--espacio-dinamico);
+    width: calc(100% - 40px);
+
+    h2 {
+        /* Uso de clamp para tipografía fluida */
+        font-size: 40px;
+        margin: 40px auto;
+        text-align: center;
+        color: var(--texto-blanco);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        /* Ajustar el fondo al texto */
+        display: table;
+        /* El ancho depende del contenido */
+        margin-left: auto;
+        /* Margin-right centra el elemento table */
+        margin-right: auto;
+
+        background-color: var(--fondo-tarjeta);
+        padding: 10px 30px;
+        /* Espaciado interno usando calc implícito */
+        border-radius: 50px;
+        /* Forma de píldora */
+
+        /* Borde decorativo con los colores de tu :root */
+        border: 2px solid var(--rgb-2);
+        box-shadow: 0 0 15px rgba(224, 0, 255, 0.2);
+    }
+}
+
+#cajas_principales,
+#cajas_secundarias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacio-dinamico);
+    margin-bottom: 80px;
+}
+
+/* 6. TARJETAS RGB (NESTING + VARIABLES LOCALES) */
+.item-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    &:hover {
+        .card {
+            transform: translateY(-8px);
+        }
+
+        .card-text-fuera {
+            color: var(--color-acento);
+        }
+    }
+
+    .card {
+        --grosor-rgb: 4px;
+        /* Variable local */
+        position: relative;
+        padding: var(--grosor-rgb);
+        background: var(--fondo-tarjeta);
+        border-radius: 15px;
+        overflow: hidden;
+        width: 100%;
+        transition: transform 0.3s ease;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(from var(--angulo),
+                    var(--rgb-1), var(--rgb-2), var(--rgb-3),
+                    var(--rgb-4), var(--rgb-5), var(--rgb-1));
+            animation: rotacion-rgb 4s linear infinite;
+            z-index: 1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: var(--grosor-rgb);
+            background: var(--fondo-tarjeta);
+            border-radius: 11px;
+            z-index: 2;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            position: relative;
+            z-index: 3;
+            border-radius: 8px;
+        }
+    }
+
+    .card-text-fuera {
+        color: var(--texto-blanco);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: var(--fuente-etiqueta);
+        margin: 0;
+        transition: color 0.3s ease;
+        text-align: center;
+    }
+}
+
+/* 7. ANIMACIONES Y FOOTER */
+@keyframes rotacion-rgb {
+    to {
+        --angulo: 360deg;
+    }
+}
+
+@keyframes slider-infinito {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Ajustado para el bucle de 10 imágenes */
+}
+
+footer {
+    background: #111;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: var(--texto-gris);
+    font-size: 0.9rem;
+}
