@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CSGO Skins!</title>
         <link rel="stylesheet" href="./styles.css">
+        <script src="./assets/js/main.js" defer></script>
 </head>
 
 <body>
@@ -20,35 +21,35 @@
                         <a href="#">HOME</a>
                         <a href="#">TOP DROPS</a>
                         <a href="#">UPGRADES</a>
-                        <a href="#">BATALLA</a>
-                        <a href="#">SOPORTE</a>
-                        <a href="#"><img src="assets/images/usuario_logo.png"
-                                        alt="User"></a>
+                        <a href="#">BATTLES</a>
+                        <a href="#">SUPPORT</a>
+
+                        <div class="user-menu-container" style="position: relative;">
+                                <a href="#" id="usuario_logo">
+                                        <img src="assets/images/usuario_logo.png" alt="User">
+                                </a>
+                                <div id="dropdown-menu" class="dropdown-content">
+                                        <a href="#profile">Profile</a>
+                                        <a href="#settings">Settings</a>
+                                        <hr>
+                                        <a href="#logout" class="logout">Logout</a>
+                                </div>
+                        </div>
                 </nav>
         </header>
 
         <div class="slider">
-                <div class="slides">    
-                        <img src="assets/images/cajasImagen.png"
-                                alt="1">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="2">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="3">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="4">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="5">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="1">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="2">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="3">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="4">
-                        <img src="assets/images/cajasImagen.png"
-                                alt="5">
+                <div class="slides">
+                        <img src="assets/images/cajabravo.png" alt="1">
+                        <img src="assets/images/cajachroma.png" alt="2">
+                        <img src="assets/images/cajaverse.avif" alt="3">
+                        <img src="assets/images/cajaphoenix.png" alt="4">
+                        <img src="assets/images/cajasuenosypesadillas.png" alt="5">
+                        <img src="assets/images/cajashangai.png" alt="1">
+                        <img src="assets/images/cajablades.avif" alt="2">
+                        <img src="assets/images/cajasamurai.avif" alt="3">
+                        <img src="assets/images/cajabravo.png" alt="4">
+                        <img src="assets/images/cajaverse.avif" alt="5">
                 </div>
         </div>
 
@@ -62,31 +63,28 @@
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="Skin 1">
+                                                        <img src="assets/images/cajaverse.avif" alt="Skin 1">
                                                 </a>
                                         </div>
-                                        <p class="card-text-fuera">AK-47 | Emperatriz</p>
+                                        <p class="card-text-fuera">Caja Verse</p>
                                 </div>
 
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="Skin 2">
+                                                        <img src="assets/images/cajablades.avif" alt="Skin 2">
                                                 </a>
                                         </div>
-                                        <p class="card-text-fuera">M4A4 | Aullido</p>
+                                        <p class="card-text-fuera">Caja Blades</p>
                                 </div>
 
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="Skin 3">
+                                                        <img src="assets/images/cajasamurai.avif" alt="Skin 3">
                                                 </a>
                                         </div>
-                                        <p class="card-text-fuera">AWP | Dragon Lore</p>
+                                        <p class="card-text-fuera">Caja Samurai</p>
                                 </div>
 
                         </div>
@@ -101,38 +99,25 @@
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
+                                                        <img src="assets/images/cajasuenosypesadillas.png" alt="">
                                                 </a>
                                         </div>
-                                        <p class="card-text-fuera">Caja Gamma</p>
+                                        <p class="card-text-fuera">Caja Sueños y Pesadillas</p>
                                 </div>
 
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
+                                                        <img src="assets/images/cajasouvenir.png" alt="">
                                                 </a>
                                         </div>
-                                        <p class="card-text-fuera">Caja Chroma</p>
+                                        <p class="card-text-fuera">Caja Souvenir</p>
                                 </div>
 
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
-                                                </a>
-                                        </div>
-                                        <p class="card-text-fuera">Caja Phoenix</p>
-                                </div>
-
-                                <div class="item-contenedor">
-                                        <div class="card">
-                                                <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
+                                                        <img src="assets/images/cajabravo.png" alt="">
                                                 </a>
                                         </div>
                                         <p class="card-text-fuera">Caja Bravo</p>
@@ -141,8 +126,26 @@
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
+                                                        <img src="assets/images/cajashangai.png" alt="">
+                                                </a>
+                                        </div>
+                                        <p class="card-text-fuera">Caja Shangai 2024</p>
+                                </div>
+
+                                <div class="item-contenedor">
+                                        <div class="card">
+                                                <a href="#">
+                                                        <img src="assets/images/cajaphoenix.png" alt="">
+                                                </a>
+                                        </div>
+                                        <p class="card-text-fuera">Caja Phoenix</p>
+                                </div>
+
+
+                                <div class="item-contenedor">
+                                        <div class="card">
+                                                <a href="#">
+                                                        <img src="assets/images/cajasspectrum.png" alt="">
                                                 </a>
                                         </div>
                                         <p class="card-text-fuera">Caja Spectrum</p>
@@ -151,8 +154,7 @@
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
+                                                        <img src="assets/images/cajaprisma.png" alt="">
                                                 </a>
                                         </div>
                                         <p class="card-text-fuera">Caja Prisma</p>
@@ -160,22 +162,12 @@
                                 <div class="item-contenedor">
                                         <div class="card">
                                                 <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
+                                                        <img src="assets/images/cajarevolver.png" alt="">
                                                 </a>
                                         </div>
                                         <p class="card-text-fuera">Caja Revolver</p>
                                 </div>
 
-                                <div class="item-contenedor">
-                                        <div class="card">
-                                                <a href="#">
-                                                        <img src="assets/images/cajasImagen.png"
-                                                                alt="">
-                                                </a>
-                                        </div>
-                                        <p class="card-text-fuera">Caja Recoil</p>
-                                </div>
                         </div>
                 </section>
         </main>
